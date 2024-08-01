@@ -1,4 +1,4 @@
-/* Глобальный сброс */
+/* Сброс стилей */
 * {
     margin: 0;
     padding: 0;
@@ -20,55 +20,81 @@ body {
     width: 100%;
     max-width: 500px;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     background-color: #ffffff;
     border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 900;
 }
 
 /* Блок с таймером */
 .box {
-    font-size: 1.125rem;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Контейнер для кнопок */
-.btns {
-    width: 100%;
+/* Контейнер для кнопок и времени */
+.time-controls {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-    margin-top: 1.5rem;
+}
+
+/* Контейнер для кнопок +/- */
+.btns-top,
+.btns-bottom {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+/* Отступы между кнопками + */
+.btns-top button {
+    margin: 30px 1.15rem 0; /* Увеличено расстояние между кнопками + */
+}
+
+/* Отступы между кнопками - */
+.btns-bottom button {
+    margin: 0 1.15rem 30px; /* Небольшое расстояние между кнопками - */
 }
 
 /* Блок отображения времени */
 .time {
-    margin: 1rem 0;
-    width: 100%;
+    font-size: 3rem;
+    font-weight: bold;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 /* Кнопки настройки времени */
 .time_btn {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     background-color: #3498db;
     color: #ffffff;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .time_btn:hover {
-    color: #2980b9;
+    background-color: #2980b9;
+}
+
+.time_btn:active {
+    background-color: #1d6fa5;
+    transform: scale(0.95);
 }
 
 /* Основные кнопки управления */
@@ -81,18 +107,33 @@ body {
     color: #ffffff;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    margin: 0 0.5rem;
 }
 
 .control_btn:hover {
     background-color: #27ae60;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.control_btn:active {
+    background-color: #1e8e4f;
+    transform: scale(0.95);
+}
+
 
 /* Стиль для разделительной точки */
 .dot {
-    font-size: 1.5rem;
-    font-weight: 700;
     margin: 0 0.5rem;
+    font-size: 3rem;
+    color: #3498db;
+}
+
+/* Анимация разделителя времени */
+@keyframes dot {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /* Медиа-запрос для адаптивности на маленьких экранах */
@@ -100,28 +141,21 @@ body {
     .container {
         width: 90%;
         padding: 1rem;
+        border-radius: 10px;
+    }
+
+    .time {
+        font-size: 2.5rem;
+    }
+
+    .time_btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
     }
 
     .control_btn {
         padding: 0.5rem 1rem;
-    }
-}
-
-
-@keyframes dot {
-    0% {
-        opacity: 0;
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    70% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
+        font-size: 0.9rem;
     }
 }

@@ -59,29 +59,16 @@ sMinus.onclick = () => {
 const audio = new Audio('./sound/sound.mp3');
 
 BtnStart.onclick = () => {
+    BtnStart.disabled = true
+    hPlus.disabled = true
+    mPlus.disabled = true
+    sPlus.disabled = true
+    hMinus.disabled = true
+    mMinus.disabled = true
+    sMinus.disabled = true
+    
     inter = setInterval(() => {
-        audio.play();
-
-        // if (active) {
-        //     dots[0].style.opacity = 0
-        //     dots[1].style.opacity = 0
-        // } else {
-        //     dots[0].style.opacity = 1
-        //     dots[1].style.opacity = 1
-        // }
-
-        dots[0].style.animation = `dot 1s infinite ease-in`
-        dots[1].style.animation = `dot 1s infinite ease-in`
-
-        hPlus.disabled = true
-        mPlus.disabled = true
-        sPlus.disabled = true
-        hMinus.disabled = true
-        mMinus.disabled = true
-        sMinus.disabled = true
-        BtnStart.disabled = true
-
-
+        
         if (s != 0 || m != 0 || h != 0) {
             if (s != 0) {
                 s--
@@ -153,6 +140,14 @@ BtnStart.onclick = () => {
                 startVelocity: 45,
             });
         }
+
+        audio.play();
+
+        dots[0].style.animation = `dot 1s infinite ease-in`
+        dots[1].style.animation = `dot 1s infinite ease-in`
+
+
+
 
     }, 1000)
 }
